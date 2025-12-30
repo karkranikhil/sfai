@@ -1,8 +1,8 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
-import { 
+import {
   Send, 
   Mail, 
   Phone, 
@@ -15,7 +15,7 @@ import {
 } from 'lucide-react'
 import { COMPANY_CONFIG } from '@/constants'
 
-export default function ContactPage() {
+function ContactForm() {
   const searchParams = useSearchParams()
   const [submitted, setSubmitted] = useState(false)
 
@@ -253,6 +253,21 @@ export default function ContactPage() {
         </div>
       </section>
     </div>
+  )
+}
+
+export default function ContactPage() {
+  return (
+    <Suspense fallback={
+      <div className="bg-white min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-salesforce mx-auto mb-4"></div>
+          <p className="text-gray-500">Loading...</p>
+        </div>
+      </div>
+    }>
+      <ContactForm />
+    </Suspense>
   )
 }
 
