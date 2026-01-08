@@ -108,10 +108,10 @@ export default function FAQClient({ faqs }: FAQClientProps) {
                   {/* Answer ALWAYS in DOM for SEO crawlers - always visible in HTML source */}
                   <div 
                     id={`faq-answer-${idx}`}
-                    className={`px-10 pb-10 text-gray-600 leading-relaxed text-lg font-light border-t border-gray-50 pt-8 transition-all duration-500 ${
+                    className={`text-gray-600 leading-relaxed text-lg font-light transition-all duration-500 ${
                       isOpen 
-                        ? 'max-h-[1000px] opacity-100 animate-in fade-in slide-in-from-top-4' 
-                        : 'max-h-0 opacity-0 overflow-hidden'
+                        ? 'max-h-[1000px] opacity-100 px-10 pb-10 pt-8 border-t border-gray-50 animate-in fade-in slide-in-from-top-4' 
+                        : 'max-h-0 opacity-0 overflow-hidden p-0 border-0'
                     }`}
                     aria-hidden={!isOpen}
                   >
